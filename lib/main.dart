@@ -22,70 +22,62 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           theme: _buildLightTheme(),
           darkTheme: _buildDarkTheme(),
-          themeMode: state == ThemeType.light
-              ? ThemeMode.light
-              : ThemeMode.dark,
+          themeMode:
+              state == ThemeType.light ? ThemeMode.light : ThemeMode.dark,
           builder: (context, child) {
-            return Scaffold
-          (
-            appBar: AppBar(
-              shape: const Border(
-                  bottom: BorderSide(
-                      color: Colors.black54,
-                      width: 1
-                  )
-              ),
-              title:  Image.asset('assets/logo.png',width: 40, height:40,fit: BoxFit.contain),
-              actions: [
-                Padding(
-                  padding: const EdgeInsets.only(right: 22.0), // Add margin to the left side
-                  child: Container(
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-
-                      color: context.read<ThemeCubit>().state == ThemeType.light
-                          ? const Color(0xfff0f2f5)
-                          : const Color(0xff18191a),
-                      border: Border.all(
-                        color: context.read<ThemeCubit>().state == ThemeType.light
-                            ? Colors.white70
-                            : Colors.black54,
-                        width: 1.5,
-                      ),
-                    ),
-                    child: Material(
-                      type: MaterialType.transparency,
-                      child: InkWell(
-                        onTap: () {
-                          // Toggle theme
-                          context.read<ThemeCubit>().toggleTheme();
-                        },
-                        customBorder: const CircleBorder(),
-                        child: Padding(
-                          padding: const EdgeInsets.all(12.0),
-                          child: Icon(
-                            context.read<ThemeCubit>().state == ThemeType.light
-                                ? Icons.sunny
-                                : Icons.nights_stay,
-                            color: context.read<ThemeCubit>().state == ThemeType.light
-                                ? Colors.black
-                                : Colors.white,
+            return Scaffold(
+                appBar: AppBar(
+                  shape: const Border(
+                      bottom: BorderSide(color: Colors.black54, width: 1)),
+                  title: Image.asset('assets/logo.png',
+                      width: 40, height: 40, fit: BoxFit.contain),
+                  actions: [
+                    Padding(
+                        padding: const EdgeInsets.only(
+                            right: 22.0), // Add margin to the left side
+                        child: Container(
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: context.read<ThemeCubit>().state ==
+                                    ThemeType.light
+                                ? const Color(0xfff0f2f5)
+                                : const Color(0xff18191a),
+                            border: Border.all(
+                              color: context.read<ThemeCubit>().state ==
+                                      ThemeType.light
+                                  ? Colors.white70
+                                  : Colors.black54,
+                              width: 1.5,
+                            ),
                           ),
-                        ),
-                      ),
-                    ),
-                  )
-
-                )
-
-              ],
-            ),
-            body: Padding(
-              padding: const EdgeInsets.only(top: 12.0),
-              child: child,
-            ),
-          );
-      },
+                          child: Material(
+                            type: MaterialType.transparency,
+                            child: InkWell(
+                              onTap: () {
+                                // Toggle theme
+                                context.read<ThemeCubit>().toggleTheme();
+                              },
+                              customBorder: const CircleBorder(),
+                              child: Padding(
+                                padding: const EdgeInsets.all(12.0),
+                                child: Icon(
+                                  context.read<ThemeCubit>().state ==
+                                          ThemeType.light
+                                      ? Icons.sunny
+                                      : Icons.nights_stay,
+                                  color: context.read<ThemeCubit>().state ==
+                                          ThemeType.light
+                                      ? Colors.black
+                                      : Colors.white,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ))
+                  ],
+                ),
+                body: child);
+          },
           home: const HomeView(),
         );
       },
@@ -95,7 +87,7 @@ class MyApp extends StatelessWidget {
 
 ThemeData _buildLightTheme() {
   return ThemeData.light().copyWith(
-    scaffoldBackgroundColor:const Color(0xfff0f2f5),
+    scaffoldBackgroundColor: const Color(0xfff0f2f5),
     primaryColor: const Color(0xfff0f2f5),
     appBarTheme: const AppBarTheme(
       backgroundColor: Colors.white,
@@ -106,12 +98,11 @@ ThemeData _buildLightTheme() {
 
 ThemeData _buildDarkTheme() {
   return ThemeData.dark().copyWith(
-    scaffoldBackgroundColor: const Color(0xff18191a),
-    primaryColor:const Color(0xff18191a),
-    appBarTheme: const AppBarTheme(
-      backgroundColor: Color(0xff242526),
-      iconTheme: IconThemeData(color: Colors.white),
-    ),
-    cardColor: const Color(0xff242526)
-  );
+      scaffoldBackgroundColor: const Color(0xff18191a),
+      primaryColor: const Color(0xff18191a),
+      appBarTheme: const AppBarTheme(
+        backgroundColor: Color(0xff242526),
+        iconTheme: IconThemeData(color: Colors.white),
+      ),
+      cardColor: const Color(0xff242526));
 }

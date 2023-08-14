@@ -68,7 +68,8 @@ class _ItemCardState extends State<ItemCard>
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10),
               ),
-              margin: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 10.0),
+              margin:
+                  const EdgeInsets.symmetric(vertical: 20.0, horizontal: 10.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
@@ -76,8 +77,8 @@ class _ItemCardState extends State<ItemCard>
                   const Row(
                     children: [
                       Padding(
-                        padding:
-                        EdgeInsets.symmetric(horizontal: 8.0, vertical: 10.0),
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 8.0, vertical: 10.0),
                         child: Text(
                           "Lorem Ipsum",
                           style: TextStyle(
